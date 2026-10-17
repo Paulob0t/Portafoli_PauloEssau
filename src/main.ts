@@ -4,8 +4,49 @@ import { SandPhysicsEngine } from './engine/sandPhysics';
 import { InteractiveShell } from './terminal/shell';
 import type { ProjectCategory, ProjectItem, ThemeOption } from './types';
 
+const TECH_ICONS: Record<string, string> = {
+  'Java 21 (Loom)': 'devicon-java-plain colored',
+  'Spring Boot 3': 'devicon-spring-original colored',
+  'PostgreSQL 16': 'devicon-postgresql-plain colored',
+  'Redis 7': 'devicon-redis-plain colored',
+  'Flyway': 'devicon-postgresql-plain colored',
+  'React 19': 'devicon-react-original colored',
+  'TypeScript': 'devicon-typescript-plain colored',
+  'Python 3.11+': 'devicon-python-plain colored',
+  'Python 3.12': 'devicon-python-plain colored',
+  'Python Asyncio': 'devicon-python-plain colored',
+  'FastAPI': 'devicon-fastapi-plain colored',
+  'SQLAlchemy 2.0': 'devicon-sqlalchemy-plain',
+  'Vue 3.5': 'devicon-vuejs-plain colored',
+  'PrimeVue 4': 'devicon-vuejs-line colored',
+  'MariaDB': 'devicon-mariadb-original colored',
+  'Node.js': 'devicon-nodejs-plain colored',
+  'Fastify 5': 'devicon-fastify-plain',
+  'Prisma ORM': 'devicon-prisma-original',
+  'Tailwind v4': 'devicon-tailwindcss-original colored',
+  'Zod': 'devicon-typescript-plain colored',
+  'Telegram Bot API': 'devicon-python-plain colored',
+  'Cloudflare Tunnels': 'devicon-cloudflare-plain colored',
+  'Linux IPC / Systemd': 'devicon-linux-plain',
+  'Wayland / Hyprland': 'devicon-archlinux-plain colored',
+  'Angular 22': 'devicon-angular-plain colored',
+  'OpenAPI CodeGen': 'devicon-openapi-plain colored',
+  'Podman': 'devicon-podman-plain colored',
+  'C++20': 'devicon-cplusplus-plain colored',
+  'Qt 6': 'devicon-qt-original colored',
+  'CMake': 'devicon-cmake-plain colored',
+  'Cellular Automata': 'devicon-cplusplus-plain colored',
+  'Particle System': 'devicon-qt-original colored'
+};
+
 function renderProjectCard(project: ProjectItem): string {
-  const pillsHtml = project.techStack.map((tech) => `<span>${tech}</span>`).join('');
+  const pillsHtml = project.techStack
+    .map((tech) => {
+      const iconClass = TECH_ICONS[tech];
+      const iconHtml = iconClass ? `<i class="${iconClass}"></i> ` : '';
+      return `<span>${iconHtml}${tech}</span>`;
+    })
+    .join('');
   const linksHtml = project.links
     .map(
       (link) =>

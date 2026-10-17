@@ -656,12 +656,19 @@ body {
 }
 
 .tech-pills span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   font-family: 'Silkscreen', monospace;
   font-size: 0.64rem;
-  padding: 0.2rem 0.5rem;
+  padding: 0.22rem 0.55rem;
   background: var(--bg-elevated);
   border: 1px solid var(--border-color);
   color: var(--text-main);
+}
+
+.tech-pills span i {
+  font-size: 0.85rem;
 }
 
 .project-links {
@@ -733,14 +740,21 @@ body {
 }
 
 .stack-badges span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   font-family: 'Silkscreen', monospace;
   font-size: 0.68rem;
-  padding: 0.28rem 0.55rem;
+  padding: 0.3rem 0.6rem;
   background: var(--bg-code);
   border: 2px solid var(--border-color);
   color: var(--text-main);
   box-shadow: 2px 2px 0px var(--shadow-color);
   transition: all 0.1s steps(2);
+}
+
+.stack-badges span i {
+  font-size: 0.95rem;
 }
 
 .stack-badges span:hover {
