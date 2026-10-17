@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="phosphor">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paulo Essau (Paulob0t) — Full Stack &amp; Software Architect</title>
+  <meta name="description" content="Portafolio de Paulo Essau (Paulob0t). Desarrollador Full Stack en WiCode & Arquitecto de Software especializado en sistemas de alta concurrencia, arquitecturas Multi-Tenant y automatización en Linux." />
+
+  <!-- Google Fonts: Silkscreen (Pixel), Press Start 2P (Pixel Header), VT323 (Pixel Terminal), JetBrains Mono (Code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;0,700;1,400&family=Press+Start+2P&family=Silkscreen:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+
+  <!-- Devicon: Official Tech Stack Icons -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <script type="module" crossorigin src="./assets/index-C-bGrWfA.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DAz4P21o.css">
+</head>
+<body>
+  <!-- Optional Subtle Scanlines Overlay -->
+  <div class="scanlines" id="scanlines"></div>
+
+  <!-- Top System Bar (Hyprland / Tiling WM inspired) -->
+  <header class="sysbar">
+    <div class="sysbar-left">
+      <span class="workspace-badge active">01:HOME</span>
+      <a href="#proyectos" class="workspace-badge">02:PROJECTS</a>
+      <a href="#stack" class="workspace-badge">03:STACK</a>
+      <a href="#terminal-section" class="workspace-badge">04:TTY</a>
+      <a href="#contacto" class="workspace-badge">05:CONTACT</a>
+    </div>
+
+    <div class="sysbar-center">
+      <span class="sysbar-title">paulobot@arch-hyprland:~/portfolio</span>
+    </div>
+
+    <div class="sysbar-right">
+      <button class="pixel-chip" id="themeBtn" title="Cambiar paleta de color">
+        [*] THEME: <span id="themeLabel">PHOSPHOR</span>
+      </button>
+      <button class="pixel-chip" id="crtBtn" title="Activar/Desactivar efecto CRT">
+        [::] CRT: <span id="crtLabel">ON</span>
+      </button>
+      <span class="sysbar-clock" id="sysClock">00:00:00</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO SECTION: Split Window Layout -->
+    <section class="hero-grid" id="inicio">
+      <!-- Main Bio Window -->
+      <div class="pixel-window hero-main">
+        <div class="window-bar">
+          <div class="window-dots">
+            <span class="dot red"></span>
+            <span class="dot amber"></span>
+            <span class="dot green"></span>
+          </div>
+          <span class="window-title">whoami.sh — Paulo Essau | Paulob0t</span>
+          <span class="window-status">[PID: 2026]</span>
+        </div>
+
+        <div class="window-body hero-content">
+          <div class="status-pill">
+            <span class="pulse-dot"></span>
+            <span>FULL STACK DEVELOPER @ WICODE // SOFTWARE ARCHITECT</span>
+          </div>
+
+          <h1 class="pixel-title">
+            PAULO ESSAU
+            <span class="title-sub">&gt; AKA <span class="accent-text">PAULOB0T</span><span class="cursor">_</span></span>
+          </h1>
+
+          <p class="hero-lead">
+            Construyo <strong>sistemas empresariales de alto rendimiento</strong>, motores transaccionales con <strong>cero sobreventas</strong>, plataformas <strong>Multi-Tenant</strong> y herramientas de control remoto en Linux. Sin humo, código limpio y arquitectura sólida.
+          </p>
+
+          <div class="hero-metrics">
+            <div class="metric-box">
+              <span class="metric-val">JAVA 21 / PY / TS</span>
+              <span class="metric-lbl">CORE BACKEND</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-val">REACT / VUE / NG</span>
+              <span class="metric-lbl">FRONTEND SPAs</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-val">ZERO OVERBOOKING</span>
+              <span class="metric-lbl">CONCURRENCY</span>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#proyectos" class="pixel-btn primary">
+              [ EXPLORAR PROYECTOS_ ]
+            </a>
+            <a href="https://github.com/Paulob0t" target="_blank" rel="noopener" class="pixel-btn">
+              [ GITHUB // @PAULOB0T ↗ ]
+            </a>
+            <a href="mailto:pauloessau32@gmail.com" class="pixel-btn">
+              [ ENVIAR CORREO &gt;&gt; ]
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Sand-Tetris / Physics Mini-Canvas Window -->
+      <div class="pixel-window hero-side">
+        <div class="window-bar">
+          <span class="window-title">sand_physics.ts (C++20 / Qt6 port)</span>
+          <button class="mini-clear-btn" id="clearSandBtn" title="Reiniciar simulación">[CLEAR]</button>
+        </div>
+        <div class="window-body sand-wrapper">
+          <canvas id="sandCanvas" width="120" height="96"></canvas>
+          <div class="sand-overlay-hint">
+            <span>[+] CLICK / ARRASTRA PARA SOLTAR ARENA PIXEL</span>
+            <button class="pixel-chip small" id="spawnPieceBtn">+ PIEZA TETRIS</button>
+          </div>
+        </div>
+        <div class="window-footer">
+          <span>AUTÓMATAS CELULARES EN VIVO</span>
+          <span id="sandFps">60 FPS</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE / CURRENT ROLE BANNER -->
+    <section class="role-banner pixel-window">
+      <div class="role-grid">
+        <div class="role-badge-col">
+          <span class="pixel-tag">ACTUALMENTE EN</span>
+          <h2 class="role-company">WICODE</h2>
+          <span class="role-location">México • Full Stack Dev</span>
+        </div>
+        <div class="role-desc-col">
+          <p>
+            Ingeniería y arquitectura Full Stack para plataformas empresariales en producción. Diseño de lógica de negocio Backend, integración de APIs REST de alta disponibilidad, optimización de consultas SQL y construcción de paneles de control ejecutivos.
+          </p>
+          <div class="role-tags">
+            <span>#CleanArchitecture</span>
+            <span>#REST_APIs</span>
+            <span>#MultiTenant</span>
+            <span>#DatabaseOptimization</span>
+            <span>#CloudSQL</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS SECTION (Rendered dynamically by src/main.ts) -->
+    <section class="section-block" id="proyectos">
+      <div class="section-header">
+        <div>
+          <span class="section-index">// 02. ARQUITECTURA &amp; CÓDIGO EN PRODUCCIÓN</span>
+          <h2 class="section-title">PROYECTOS DESTACADOS</h2>
+        </div>
+
+        <div class="filter-bar" role="tablist">
+          <button class="filter-btn active" data-filter="all">[ TODOS (6) ]</button>
+          <button class="filter-btn" data-filter="backend">[ CONCURRENCIA &amp; CLOUD ]</button>
+          <button class="filter-btn" data-filter="fullstack">[ MULTI-TENANT &amp; POS ]</button>
+          <button class="filter-btn" data-filter="systems">[ DEVOPS &amp; C++ ]</button>
+        </div>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid"></div>
+    </section>
+
+    <!-- TECH STACK MATRIX SECTION -->
+    <section class="section-block" id="stack">
+      <div class="section-header">
+        <div>
+          <span class="section-index">// 03. ARSENAL TÉCNICO</span>
+          <h2 class="section-title">TECH STACK &amp; HERRAMIENTAS</h2>
+        </div>
+      </div>
+
+      <div class="stack-grid">
+        <div class="pixel-window stack-card">
+          <div class="window-bar">
+            <span class="window-title">[A] BACKEND &amp; RUNTIMES</span>
+            <span class="window-status">[API / CORE]</span>
+          </div>
+          <div class="window-body stack-body">
+            <div class="stack-group">
+              <span class="stack-group-label">&gt; LENGUAJES PRINCIPALES</span>
+              <div class="stack-badges">
+                <span><i class="devicon-typescript-plain colored"></i> TypeScript</span>
+                <span><i class="devicon-python-plain colored"></i> Python 3.12</span>
+                <span><i class="devicon-java-plain colored"></i> Java 21</span>
+                <span><i class="devicon-cplusplus-plain colored"></i> C++20</span>
+                <span><i class="devicon-php-plain colored"></i> PHP 8+</span>
+                <span><i class="devicon-azuresqldatabase-plain colored"></i> SQL</span>
+              </div>
+            </div>
+
+            <div class="stack-group">
+              <span class="stack-group-label">&gt; FRAMEWORKS &amp; SERVIDORES</span>
+              <div class="stack-badges">
+                <span><i class="devicon-fastapi-plain colored"></i> FastAPI</span>
+                <span><i class="devicon-spring-original colored"></i> Spring Boot 3</span>
+                <span><i class="devicon-fastify-plain"></i> Fastify 5</span>
+                <span><i class="devicon-nodejs-plain colored"></i> Node.js</span>
+                <span><i class="devicon-express-original"></i> Express</span>
+                <span><i class="devicon-rails-plain colored"></i> Rails 8</span>
+              </div>
+            </div>
+
+            <div class="stack-group">
+              <span class="stack-group-label">&gt; ARQUITECTURA &amp; SEGURIDAD</span>
+              <div class="stack-badges">
+                <span><i class="devicon-java-plain colored"></i> Virtual Threads (Loom)</span>
+                <span><i class="devicon-json-plain"></i> Multi-Tenant JWT</span>
+                <span><i class="devicon-oauth-plain"></i> RBAC</span>
+                <span><i class="devicon-openapi-plain colored"></i> OpenAPI 3.0</span>
+                <span><i class="devicon-typescript-plain colored"></i> Zod / Pydantic</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pixel-window stack-card">
+          <div class="window-bar">
+            <span class="window-title">[B] FRONTEND, UI &amp; NATIVO</span>
+            <span class="window-status">[SPA / DESKTOP]</span>
+          </div>
+          <div class="window-body stack-body">
+            <div class="stack-group">
+              <span class="stack-group-label">&gt; ECOSISTEMA WEB</span>
+              <div class="stack-badges">
+                <span><i class="devicon-react-original colored"></i> React 19</span>
+                <span><i class="devicon-vuejs-plain colored"></i> Vue 3.5</span>
+                <span><i class="devicon-angular-plain colored"></i> Angular 22</span>
+                <span><i class="devicon-vitejs-plain colored"></i> Vite 6</span>
+                <span><i class="devicon-vuejs-plain colored"></i> Pinia</span>
+                <span><i class="devicon-vuejs-line colored"></i> PrimeVue 4</span>
+              </div>
+            </div>
+
+            <div class="stack-group">
+              <span class="stack-group-label">&gt; ESTILOS &amp; CONTRATOS HTTP</span>
+              <div class="stack-badges">
+                <span><i class="devicon-tailwindcss-original colored"></i> Tailwind CSS v4</span>
+                <span><i class="devicon-css3-plain colored"></i> CSS Grid / Custom</span>
+                <span><i class="devicon-openapi-plain colored"></i> ng-openapi-gen</span>
+                <span><i class="devicon-axios-plain colored"></i> Axios Interceptors</span>
+              </div>
+            </div>
+
+            <div class="stack-group">
+              <span class="stack-group-label">&gt; DESKTOP, ENGINE &amp; MOBILE</span>
+              <div class="stack-badges">
+                <span><i class="devicon-qt-original colored"></i> Qt 6 (C++)</span>
+                <span><i class="devicon-cmake-plain colored"></i> CMake</span>
+                <span><i class="devicon-html5-plain colored"></i> Canvas 2D</span>
+                <span><i class="devicon-kotlin-plain colored"></i> Kotlin (Android)</span>
+                <span><i class="devicon-godot-plain colored"></i> Godot 4</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pixel-window stack-card">
+          <div class="window-bar">
+            <span class="window-title">[C] DATOS, LINUX &amp; INFRA</span>
+            <span class="window-status">[DB / DEVOPS]</span>
+          </div>
+          <div class="window-body stack-body">
+            <div class="stack-group">
+              <span class="stack-group-label">&gt; MOTORES DE BASE DE DATOS</span>
+              <div class="stack-badges">
+                <span><i class="devicon-postgresql-plain colored"></i> PostgreSQL 16</span>
+                <span><i class="devicon-mariadb-original colored"></i> MariaDB</span>
+                <span><i class="devicon-mysql-original colored"></i> MySQL</span>
+                <span><i class="devicon-redis-plain colored"></i> Redis 7</span>
+                <span><i class="devicon-googlecloud-plain colored"></i> Cloud SQL</span>
+              </div>
+            </div>
+
+            <div class="stack-group">
+              <span class="stack-group-label">&gt; ORMs, MIGRACIONES &amp; LOCKS</span>
+              <div class="stack-badges">
+                <span><i class="devicon-prisma-original"></i> Prisma ORM</span>
+                <span><i class="devicon-sqlalchemy-plain"></i> SQLAlchemy 2.0</span>
+                <span><i class="devicon-hibernate-plain colored"></i> Hibernate / JPA</span>
+                <span><i class="devicon-postgresql-plain colored"></i> Flyway</span>
+                <span><i class="devicon-azuresqldatabase-plain colored"></i> SELECT FOR UPDATE</span>
+              </div>
+            </div>
+
+            <div class="stack-group">
+              <span class="stack-group-label">&gt; ENTORNO &amp; DESPLIEGUE</span>
+              <div class="stack-badges">
+                <span><i class="devicon-archlinux-plain colored"></i> Arch Linux / Hyprland</span>
+                <span><i class="devicon-podman-plain colored"></i> Podman</span>
+                <span><i class="devicon-docker-plain colored"></i> Docker</span>
+                <span><i class="devicon-linux-plain"></i> Systemd</span>
+                <span><i class="devicon-cloudflare-plain colored"></i> Cloudflare Tunnels</span>
+                <span><i class="devicon-git-plain colored"></i> Git</span>
+                <span><i class="devicon-pnpm-plain colored"></i> pnpm</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE TERMINAL SECTION -->
+    <section class="section-block" id="terminal-section">
+      <div class="section-header">
+        <div>
+          <span class="section-index">// 04. CONSOLA INTERACTIVA</span>
+          <h2 class="section-title">PAULOBOT SHELL v2.6</h2>
+        </div>
+        <div class="terminal-quick-cmds">
+          <span>COMANDOS RÁPIDOS:</span>
+          <button class="pixel-chip cmd-trigger" data-cmd="neofetch">neofetch</button>
+          <button class="pixel-chip cmd-trigger" data-cmd="projects">projects</button>
+          <button class="pixel-chip cmd-trigger" data-cmd="stack">stack</button>
+          <button class="pixel-chip cmd-trigger" data-cmd="contact">contact</button>
+          <button class="pixel-chip cmd-trigger" data-cmd="clear">clear</button>
+        </div>
+      </div>
+
+      <div class="pixel-window terminal-window">
+        <div class="window-bar">
+          <div class="window-dots">
+            <span class="dot red"></span>
+            <span class="dot amber"></span>
+            <span class="dot green"></span>
+          </div>
+          <span class="window-title">kitty — paulobot@archlinux: ~/portfolio (zsh)</span>
+          <span class="window-status">[UTF-8]</span>
+        </div>
+
+        <div class="terminal-output" id="termOutput">
+          <div class="term-line muted">Bienvenido a Paulob0t Interactive Shell (v2.6.0-arch).</div>
+          <div class="term-line muted">Escribe <span class="accent-text">'help'</span> o haz clic en los botones de arriba para inspeccionar mi perfil.</div>
+          <br />
+        </div>
+
+        <form class="terminal-input-row" id="termForm" autocomplete="off">
+          <span class="term-prompt">paulobot@wicode:~$</span>
+          <input
+            type="text"
+            id="termInput"
+            class="term-input"
+            placeholder="Escribe un comando (help, neofetch, projects, stack, contact)..."
+            aria-label="Comando de terminal"
+          />
+        </form>
+      </div>
+    </section>
+
+    <!-- CONTACT / FOOTER SECTION -->
+    <section class="section-block" id="contacto">
+      <div class="pixel-window contact-window">
+        <div class="window-bar">
+          <span class="window-title">05 // iniciar_conexion.sh</span>
+          <span class="window-status">[STATUS: ONLINE]</span>
+        </div>
+        <div class="window-body contact-body">
+          <div class="contact-text">
+            <span class="section-index">// ¿LISTO PARA CONSTRUIR ALGO GRANDE?</span>
+            <h2 class="contact-heading">HABLEMOS DE ARQUITECTURA, CÓDIGO O PROYECTOS</h2>
+            <p>
+              Si buscas un Desarrollador Full Stack o Arquitecto de Software que domine desde el diseño de bases de datos transaccionales y APIs de alta concurrencia hasta interfaces modernas en React, Vue o Angular, mándame mensaje directo.
+            </p>
+          </div>
+
+          <div class="contact-cards">
+            <a href="mailto:pauloessau32@gmail.com" class="contact-card">
+              <span class="contact-icon">[@]</span>
+              <div>
+                <div class="contact-label">EMAIL DIRECTO</div>
+                <div class="contact-val">pauloessau32@gmail.com</div>
+              </div>
+            </a>
+
+            <a href="https://github.com/Paulob0t" target="_blank" rel="noopener" class="contact-card">
+              <span class="contact-icon">[&lt;&gt;]</span>
+              <div>
+                <div class="contact-label">GITHUB PROFILE</div>
+                <div class="contact-val">github.com/Paulob0t</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pixel-footer">
+    <div class="container footer-inner">
+      <span>© 2026 PAULO ESSAU (PAULOB0T) // TYPESCRIPT + VITE PIXEL ARCHITECTURE</span>
+      <span>ARCH LINUX • HYPRLAND • WICODE</span>
+    </div>
+  </footer>
+
+</body>
+</html>
