@@ -1,5 +1,5 @@
 /**
- * Interactive Terminal Emulator for Paulob0t Shell v2.6
+ * Interactive Terminal Emulator for Paulob0t Shell v2.7
  */
 export class InteractiveShell {
   private readonly outputEl: HTMLElement;
@@ -13,8 +13,8 @@ export class InteractiveShell {
     this.commands = {
       help: () => [
         'Comandos disponibles en Paulob0t Shell:',
-        '  neofetch   -> Muestra resumen del sistema y perfil de arquitecto',
-        '  projects   -> Lista los 6 proyectos principales con sus stacks',
+        '  neofetch   -> Muestra resumen del sistema y perfil técnico',
+        '  projects   -> Lista los 8 proyectos principales con sus stacks',
         '  stack      -> Muestra lenguajes, frameworks y bases de datos',
         '  contact    -> Información de contacto directo y GitHub',
         '  sand       -> Lanza una pieza extra en el simulador Sand-Tetris',
@@ -23,26 +23,28 @@ export class InteractiveShell {
       neofetch: () => [
         '       /\\         paulobot@arch-wicode',
         '      /  \\        --------------------',
-        '     /\\   \\       OS: Arch Linux x86_64 (Hyprland)',
+        '     /\\   \\       OS: Arch Linux x86_64 (Hyprland / Wayland)',
         '    /      \\      Role: Full Stack Developer @ WiCode & Software Architect',
-        '   /   ,,   \\     Focus: High-Concurrency, Multi-Tenant CMS, Cloud Suites',
-        '  /   |  |  -\\    Backend: Java 21 (Spring Boot), Python (FastAPI), TS (Fastify)',
-        ' /_-""    ""-_\\   Frontend: React 19, Vue 3.5, Angular 22, Tailwind CSS v4',
-        '                  DB & Infra: PostgreSQL 16, MariaDB, Redis 7, Podman, Linux'
+        '   /   ,,   \\     Focus: High-Concurrency, Multi-Tenant CMS, Go Daemons',
+        '  /   |  |  -\\    Backend: Go 1.23+, Java 21 (Spring Boot), Python (FastAPI), TS',
+        ' /_-""    ""-_\\   Frontend: React 19, Vue 3.5, Angular 22, Flutter, Tailwind v4',
+        '                  DB & Infra: PostgreSQL 16, MariaDB, Redis 7, Podman, Systemd'
       ],
       projects: () => [
-        '[01] SeatLock          :: Java 21 (Loom) + Spring Boot 3 + PG16 + Redis 7 + React 19',
-        '[02] Puvnex CRM        :: Python (FastAPI + SQLAlchemy 2) + Vue 3.5 + MariaDB',
-        '[03] PuvloBuilder CMS  :: Fastify 5 + Prisma ORM + React 19 + Dual JWT Auth',
-        '[04] AGY Remote Bot    :: Python Asyncio + Telegram API + Cloudflare Tunnels + Linux',
-        '[05] PauloBot Store v2 :: FastAPI (Python 3.12) + Angular 22 + OpenAPI Gen + Podman',
-        '[06] Tetris-Qt6 Engine :: C++20 + Qt 6 + Cellular Automata Sand Physics (60 FPS)'
+        '[01] Paulobot Daemon   :: 100% Go (0 deps, 1.5MB RAM) + AGY/Claude Stream + /proc Kill',
+        '[02] SeatLock Engine   :: Java 21 (Loom) + Spring Boot 3 + PG16 + Redis 7 + React 19',
+        '[03] PuvloBuilder CMS  :: Fastify 5 + Prisma + React 19 + Live Resize Canvas + Dual JWT',
+        '[04] FreelancerHub     :: Node 22 + Prisma 6 + PG16 + React + Flutter (Escrow & MDP)',
+        '[05] Puvnex CRM        :: Python (FastAPI + SQLAlchemy 2) + Vue 3.5 + MariaDB',
+        '[06] PauloBot Store v2 :: FastAPI (Python 3.12) + Angular 22 + OpenAPI Gen + Podman',
+        '[07] Tetris-Qt6 Engine :: C++20 + Qt 6 + Cellular Automata Sand Physics (60 FPS)',
+        '[08] Godot 4 3D Lab    :: GDScript + Wavefront (.obj) Mesh + Custom CollisionShape3D'
       ],
       stack: () => [
-        '>> LENGUAJES  : TypeScript, Python, Java 21, C++20, JavaScript, PHP, Go, Ruby, Kotlin',
-        '>> BACKEND    : FastAPI, Spring Boot 3, Fastify 5, Node.js, Express, Rails 8',
-        '>> FRONTEND   : React 19, Vue 3.5 (Pinia/PrimeVue), Angular 22, Tailwind v4, Qt 6',
-        '>> DATA/INFRA : PostgreSQL 16, MariaDB, Redis 7, Prisma, Hibernate, Podman, Systemd'
+        '>> LENGUAJES  : Go, TypeScript, Python 3.12, Java 21, C++20, PHP 8+, Kotlin, GDScript',
+        '>> BACKEND    : FastAPI, Spring Boot 3, Fastify 5, Node.js 22, Express, Rails 8',
+        '>> FRONTEND   : React 19, Vue 3.5 (Pinia/PrimeVue), Angular 22, Flutter, Qt 6',
+        '>> DATA/INFRA : PostgreSQL 16, MariaDB, Redis 7, Prisma 6, SQLAlchemy 2, Podman, Linux'
       ],
       contact: () => [
         '[@] Email  : pauloessau32@gmail.com',
@@ -51,7 +53,7 @@ export class InteractiveShell {
       ],
       sand: () => {
         this.onSpawnSand();
-        return ['[+] Tetrominó de arena lanzado en sand_physics.exe!'];
+        return ['[+] Tetrominó de arena lanzado en sand_physics.ts!'];
       }
     };
   }
